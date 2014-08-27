@@ -18,7 +18,7 @@ grunt.loadNpmTasks('grunt-blueprint-test-runner');
 ## The "blueprint_test_runner" task
 
 ### Overview
-In your project's Gruntfile, add a section named `blueprint_test_runner` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `blueprint-test-runner` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
