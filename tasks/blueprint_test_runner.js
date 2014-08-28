@@ -13,11 +13,20 @@ var webDriverManager = require('webdriver-manager');
 var drakov = require('drakov');
 
 var protractorLauncher = require(path.resolve(__dirname, '../node_modules/protractor/lib/launcher'));
+var chromeDriver = path.resolve(__dirname,'../node_modules/webdriver-manager/selenium/chromedriver');
+var selenium = path.resolve(__dirname,'../node_modules/webdriver-manager/selenium/selenium-server-standalone-2.42.2.jar');
+
+var standaloneProperties = {
+    capabilities: {
+        browserName: 'phantomjs'
+    },
+    seleniumServerJar: selenium
+};
 
 var protractorConfig = {
     suites: {},
-    chromeOnly: true,
-    chromeDriver: path.resolve(__dirname,'../node_modules/webdriver-manager/selenium/chromedriver'),
+    chromeOnly: false,
+    chromeDriver: chromeDriver,
     jasmineNodeOpts: {
         isVerbose: true,
         showColors: true,
@@ -30,8 +39,15 @@ module.exports = function(grunt) {
 
     var options = {};
     var drakovArgs = {};
+    var isChromeOnly = false;
 
     var runProtractor = function() {
+        if (isChromeOnly) {
+            protractorConfig.chromeOnly = true;
+        } else {
+            protractorConfig.seleniumServerJar = selenium;
+            protractorConfig.capabilities = standaloneProperties.capabilities;
+        }
         protractorLauncher.init(null, protractorConfig);
     };
 
@@ -48,11 +64,12 @@ module.exports = function(grunt) {
         options = this.options();
         drakovArgs = this.data.drakov;
         protractorConfig.suites = this.data.protractor.suites;
+        isChromeOnly = this.data.chromeOnly;
 
         var done = this.async();
 
         var wd = new webDriverManager();
-        wd.install(['chrome'], runDrakov(done));
+        wd.install(['chrome', 'standalone'], runDrakov(done));
 
     });
 
