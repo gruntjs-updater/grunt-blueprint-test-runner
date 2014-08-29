@@ -13,12 +13,16 @@ var webDriverManager = require('webdriver-manager');
 var drakov = require('drakov');
 
 var protractorLauncher = require(path.resolve(__dirname, '../node_modules/protractor/lib/launcher'));
+var phantomjsBinary = path.resolve(__dirname, '../node_modules/phantomjs/bin/phantomjs');
 var chromeDriver = path.resolve(__dirname,'../node_modules/webdriver-manager/selenium/chromedriver');
 var selenium = path.resolve(__dirname,'../node_modules/webdriver-manager/selenium/selenium-server-standalone-2.42.2.jar');
 
+console.log('phantomjsBinary', phantomjsBinary);
+
 var standaloneProperties = {
     capabilities: {
-        browserName: 'phantomjs'
+        browserName: 'phantomjs',
+        'phantomjs.binary.path': phantomjsBinary
     },
     seleniumServerJar: selenium
 };
