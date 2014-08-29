@@ -2,6 +2,9 @@
 
 > API Blueprint and Protractor Test Runner.
 
+A Grunt plugin for running Angular.js functional tests combining [Drakov](https://github.com/Aconex/drakov) and [Protractor](https://github.com/angular/protractor).
+
+
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
 
@@ -88,10 +91,43 @@ grunt.initConfig({
 });
 ```
 
+
+#### Configuration with additional protractor properties
+There are some defaults configured for running protractor. You can as a minimum just include `specs` or `suites`.
+
+If you require additions to the protractor configuration, these are passed directly from the `protractor` property in your target configuration.
+
+See 
+
+```js
+grunt.initConfig({
+  blueprint_test_runner: {
+    your_target: {
+      drakov: {
+        sourceFiles: 'path/to/blueprint/files/**/*.md',
+        serverPort: 3000,
+        staticPaths: 'path/to/static/files'
+      },
+      protractor: {
+        specs: [
+            'path/to/some/specs/**/*.js'
+        ]
+        params: {
+            foo: function() {
+                return 'bar';
+            }
+        }
+      }
+    }
+  }
+});
+```
+
+
 #### Configuration with additional Drakov properties
 This is an example of all the extra properties for Drakov including server port and a basic static route.
 
-The `sourceFiles` property is required in the `drakov` object below. `suites` is also required to have entries like the example below.
+The `sourceFiles` property is required in the `drakov` object below.
 
 ```js
 grunt.initConfig({

@@ -37,7 +37,6 @@ var protractorConfig = {
 
 module.exports = function(grunt) {
 
-    var options = {};
     var drakovArgs = {};
     var isChromeOnly = false;
 
@@ -60,11 +59,17 @@ module.exports = function(grunt) {
         }
     };
 
+    var applyOptionsToProtractorConfig = function(options) {
+        Object.keys(options).forEach(function(key) {
+            protractorConfig[key] = options[key];
+        });
+
+    };
+
     grunt.registerMultiTask('blueprint-test-runner', 'API Blueprint Protractor Test Runner', function() {
-        options = this.options();
         drakovArgs = this.data.drakov;
-        protractorConfig.suites = this.data.protractor.suites;
         isChromeOnly = this.data.chromeOnly;
+        applyOptionsToProtractorConfig(this.data.protractor);
 
         var done = this.async();
 

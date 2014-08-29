@@ -1,7 +1,7 @@
 {
   "name": "grunt-blueprint-test-runner",
   "description": "API Blueprint Protractor Test Runner",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "https://github.com/Aconex/grunt-blueprint-test-runner",
   "author": {
     "name": "Yakov Khalinsky",
