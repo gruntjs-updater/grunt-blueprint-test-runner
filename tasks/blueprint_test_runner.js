@@ -17,8 +17,6 @@ var phantomjsBinary = path.resolve(__dirname, '../node_modules/phantomjs/bin/pha
 var chromeDriver = path.resolve(__dirname,'../node_modules/webdriver-manager/selenium/chromedriver');
 var selenium = path.resolve(__dirname,'../node_modules/webdriver-manager/selenium/selenium-server-standalone-2.42.2.jar');
 
-console.log('phantomjsBinary', phantomjsBinary);
-
 var standaloneProperties = {
     capabilities: {
         browserName: 'phantomjs',
