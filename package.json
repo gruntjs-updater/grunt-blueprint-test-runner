@@ -1,7 +1,7 @@
 {
   "name": "grunt-blueprint-test-runner",
   "description": "API Blueprint Protractor Test Runner",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "homepage": "https://github.com/Aconex/grunt-blueprint-test-runner",
   "author": {
     "name": "Yakov Khalinsky",
@@ -21,13 +21,13 @@
     }
   ],
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 0.10.0"
   },
   "scripts": {
     "test": "grunt test"
   },
   "dependencies": {
-    "drakov": "0.0.4",
+    "drakov": "0.0.6",
     "phantomjs": "1.9.7-15",
     "protractor": "1.1.1",
     "webdriver-manager": "0.0.7"
