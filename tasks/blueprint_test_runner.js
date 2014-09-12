@@ -18,17 +18,21 @@ module.exports = function(grunt) {
 
     var drakovArgs = {};
     var isChromeOnly = false;
+    var browserName = null;
 
-    var standaloneProperties = config.properties.getStandalone();
+    var standaloneProperties = null;
     var protractorProperties = config.properties.getProtractor();
 
     var runProtractor = function() {
+        standaloneProperties = config.properties.getStandalone(browserName);
+
         if (isChromeOnly) {
             protractorProperties.chromeOnly = true;
         } else {
             protractorProperties.seleniumServerJar = config.paths.selenium;
             protractorProperties.capabilities = standaloneProperties.capabilities;
         }
+        console.log('Running with', browserName.toUpperCase(), '\n');
         config.paths.protractorLauncher.init(null, protractorProperties);
     };
 
@@ -56,6 +60,7 @@ module.exports = function(grunt) {
     grunt.registerMultiTask('blueprint-test-runner', 'API Blueprint Protractor Test Runner', function() {
         drakovArgs = this.data.drakov;
         isChromeOnly = this.data.chromeOnly;
+        browserName = this.data.browserName;
         applyOptionsToProtractorConfig(this.data.protractor);
         updateAndRunWebdriver(this.async())
     });

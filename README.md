@@ -68,10 +68,27 @@ grunt.initConfig({
 });
 ```
 
+
+#### Specifying browserName when running with Selenium standalone
+
+You can specify the browser to run with Selenenium, simply add `browserName: <browser>` inside your target properties.
+
+```js
+grunt.initConfig({
+  blueprint_test_runner: {
+    your_target: {
+      browserName: 'firefox',
+      ...    
+    }
+  }
+});
+```
+
+
 #### Running with the chromedriver
 This is an example of a minimum configuration config.
 
-Instead of running with selenium and phantomjs, simple add `chromeDriver: true` inside your target properties.
+Instead of running with selenium and phantomjs, simply add `chromeDriver: true` inside your target properties.
 
 ```js
 grunt.initConfig({

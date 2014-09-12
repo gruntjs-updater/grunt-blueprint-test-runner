@@ -9,10 +9,10 @@ exports.paths = {
 };
 
 exports.properties = {
-    getStandalone: function () {
+    getStandalone: function (browserName) {
         return {
             capabilities: {
-                browserName: 'phantomjs',
+                browserName: browserName || 'phantomjs',
                 'phantomjs.binary.path': phantomjsBinary
             },
             seleniumServerJar: exports.paths.selenium
