@@ -27,7 +27,7 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "drakov": "0.0.6",
+    "drakov": "0.0.7",
     "phantomjs": "1.9.7-15",
     "protractor": "1.1.1",
     "webdriver-manager": "0.0.7"
