@@ -42,7 +42,7 @@ module.exports = function(grunt) {
                 cb(err);
             }
             drakov.run(drakovArgs, runProtractor);
-        }
+        };
     };
 
     var updateAndRunWebdriver = function(cb) {
@@ -63,7 +63,7 @@ module.exports = function(grunt) {
         isChromeOnly = this.data.chromeOnly;
         browserName = this.data.browserName;
         applyOptionsToProtractorConfig(this.data.protractor);
-        updateAndRunWebdriver(this.async())
+        updateAndRunWebdriver(this.async());
     });
 
 };

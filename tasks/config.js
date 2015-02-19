@@ -35,7 +35,7 @@ exports.properties = {
                 includeStackTrace: true,
                 defaultTimeoutInterval: 30000
             }
-        }
+        };
     }
 };
 
