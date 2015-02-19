@@ -10,7 +10,7 @@ exports.version = package.version;
 
 exports.paths = {
     protractorLauncher: require(path.resolve(__dirname, '../node_modules/protractor/lib/launcher')),
-    selenium: path.resolve(__dirname,'../node_modules/webdriver-manager/selenium/selenium-server-standalone-2.42.2.jar')
+    selenium: path.resolve(__dirname,'../node_modules/webdriver-manager/selenium/selenium-server-standalone-2.44.0.jar')
 };
 
 exports.properties = {
