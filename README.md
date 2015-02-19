@@ -1,6 +1,6 @@
 # grunt-blueprint-test-runner
 
-[![Build Status](https://travis-ci.org/Aconex/grunt-blueprint-test-runner.svg)](https://travis-ci.org/Aconex/grunt-blueprint-test-runner)
+[![npm version](https://badge.fury.io/js/grunt-blueprint-test-runner.svg)](http://badge.fury.io/js/grunt-blueprint-test-runner) [![Build Status](https://travis-ci.org/Aconex/grunt-blueprint-test-runner.svg)](https://travis-ci.org/Aconex/grunt-blueprint-test-runner)
 
 > API Blueprint and Protractor Test Runner.
 
