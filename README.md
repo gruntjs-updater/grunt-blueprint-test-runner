@@ -1,5 +1,7 @@
 # grunt-blueprint-test-runner
 
+[![Build Status](https://travis-ci.org/Aconex/grunt-blueprint-test-runner.svg)](https://travis-ci.org/Aconex/grunt-blueprint-test-runner)
+
 > API Blueprint and Protractor Test Runner.
 
 A Grunt plugin for running Angular.js functional tests combining [Drakov](https://github.com/Aconex/drakov) and [Protractor](https://github.com/angular/protractor).
