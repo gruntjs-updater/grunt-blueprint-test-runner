@@ -16,7 +16,7 @@ var config = require('./config');
 
 module.exports = function(grunt) {
 
-    var drakovArgs = {};
+    var drakovArgs = null;
     var isChromeOnly = false;
     var browserName = null;
 
@@ -48,7 +48,11 @@ module.exports = function(grunt) {
     var updateAndRunWebdriver = function(cb) {
         var wd = new webDriverManager();
         var drivers = isChromeOnly ? ['chrome'] : ['standalone'];
-        wd.install(drivers, runDrakov(cb));
+        if (drakovArgs) {
+            wd.install(drivers, runDrakov(cb));
+        } else {
+            wd.install(drivers, runProtractor);
+        }
     };
 
     var applyOptionsToProtractorConfig = function(options) {

@@ -110,6 +110,10 @@ grunt.initConfig({
 });
 ```
 
+#### Configuration to run protractor tests without Drakov
+In case you wish to execute protractor tests without Drakov running simple leave out the `drakov` property
+
+
 
 #### Configuration with additional protractor properties
 There are some defaults configured for running protractor. You can as a minimum just include `specs` or `suites`.
