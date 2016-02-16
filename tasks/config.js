@@ -1,7 +1,16 @@
 var path = require('path');
 
-var phantomjsBinary = path.resolve(__dirname, '../node_modules/phantomjs/bin/phantomjs');
-var chromeDriver = path.resolve(__dirname,'../node_modules/webdriver-manager/selenium/chromedriver');
+function stripJsExtension(pathToFile) {
+    if (path.extname(pathToFile) === '.js') {
+        pathToFile = pathToFile.slice(0, -3);
+    }
+    return pathToFile;
+}
+
+var webdriverPath = require.resolve('webdriver-manager').replace('/lib/index.js', '');
+var phantomjsBinary = stripJsExtension(require.resolve('phantomjs'));
+var chromeDriver = webdriverPath + '/selenium/chromedriver';
+var seleniumJar = webdriverPath + '/selenium/selenium-server-standalone-2.44.0.jar';
 
 var package = require('../package.json');
 
@@ -9,8 +18,8 @@ exports.description = package.description;
 exports.version = package.version;
 
 exports.paths = {
-    protractorLauncher: require(path.resolve(__dirname, '../node_modules/protractor/lib/launcher')),
-    selenium: path.resolve(__dirname,'../node_modules/webdriver-manager/selenium/selenium-server-standalone-2.44.0.jar')
+    protractorLauncher: require('protractor/lib/launcher'),
+    selenium: seleniumJar
 };
 
 exports.properties = {
@@ -38,4 +47,3 @@ exports.properties = {
         };
     }
 };
-
